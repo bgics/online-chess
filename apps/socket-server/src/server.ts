@@ -15,6 +15,7 @@ export class Server {
     this.wss = new WebSocketServer(options);
 
     this.wss.on("connection", (ws) => {
+      console.log("hello user")
       ws.on("close", async () => {
         const { id, gameId } = ws as WebSocketWithInfo;
         this.connectedUsers.delete(id);
